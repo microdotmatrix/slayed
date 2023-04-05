@@ -6,13 +6,13 @@ import './css/site.css'
 
 window.Alpine = Alpine
 
-const ns = 'slayed' 
+const namespace = 'slayed' 
 
-window[ns] = (window[ns] || {})
-window[ns].helpers = helpers
+window[namespace] = (window[namespace] || {})
+window[namespace].helpers = helpers
 
 for (const [key, value] of Object.entries(helpers)) {
-  window[ns].helpers[key] = value
+  window[namespace].helpers[key] = value
 }
 
 // Alpine plugins

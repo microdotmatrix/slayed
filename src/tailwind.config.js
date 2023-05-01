@@ -7,17 +7,6 @@
 const path = require('path')
 let plugin = require('tailwindcss/plugin')
 
-const headerSizes = {
-  'header-height-mobile': 'var(--header-height-mobile)',
-  'header-height-mobile-scrolled': 'var(--header-height-mobile-scrolled)',
-  'header-height-desktop': 'var(--header-height-desktop)',
-  'header-height-desktop-scrolled': 'var(--header-height-desktop-scrolled)',
-  'header-height-mobile-offset': 'var(--header-height-mobile-offset)',
-  'header-height-mobile-scrolled-offset': 'var(--header-height-mobile-scrolled-offset)',
-  'header-height-desktop-offset': 'var(--header-height-desktop-offset)',
-  'header-height-desktop-scrolled-offset': 'var(--header-height-desktop-scrolled-offset)',
-}
-
 module.exports = {
   content: [path.resolve(__dirname, '**/*.js'), path.resolve(__dirname, '../shopify/**/*.liquid')],
   theme: {
@@ -65,15 +54,28 @@ module.exports = {
           800: '#000000',
           900: '#000000',
         },
-      },
-      height: headerSizes,
-      spacing: headerSizes
+        woodland: {
+          DEFAULT: '#595425',
+          50: '#C4BC71',
+          100: '#BEB563',
+          200: '#AFA649',
+          300: '#938A3D',
+          400: '#766F31',
+          500: '#595425',
+          600: '#312F15',
+          700: '#0A0904',
+          800: '#000000',
+          900: '#000000',
+          950: '#000000',
+        }
+      }
     },
   },
   plugins: [
     require('@tailwindcss/typography'),
     plugin(function ({ addVariant }) {
-      addVariant('scrolled', '.scrolled &'), addVariant('mobile-menu-visible', '.mobile-menu-visible &')
+      addVariant('scrolled', '.scrolled &'),
+        addVariant('mobile-menu-visible', '.mobile-menu-visible &')
     }),
   ],
 }

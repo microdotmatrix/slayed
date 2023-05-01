@@ -1,46 +1,73 @@
-<!-- logo (start) -->
-<p align="center">
-  <img src="https://raw.githubusercontent.com/uicrooks/shopify-theme-lab/master/.github/img/logo.svg" width="250px">
-</p>
+# Slayed Shopify Starter Theme
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/uicrooks/shopify-theme-lab/master/.github/img/banner.svg" width="400px">
-</p>
-<!-- logo (end) -->
+## Shopify CLI
 
-<!-- badges (start) -->
-<p align="center">
-  <img src="https://img.shields.io/github/package-json/v/uicrooks/shopify-theme-lab?color=%236e78ff">
-  <img src="https://img.shields.io/github/package-json/dependency-version/uicrooks/shopify-theme-lab/vue?color=%234fc08d">
-  <img src="https://img.shields.io/github/package-json/dependency-version/uicrooks/shopify-theme-lab/tailwindcss?color=%2306b6d4">
-</p>
-<!-- badges (end) -->
+To easily log into your preferred store and theme, create a `shopify.theme.toml` in the root directory and define your environement details.
 
-<!-- title / description (start) -->
-<h2 align="center">Shopify Theme Lab</h2>
+Example:
 
-Shopify Theme Lab is a customizable modular development environment for blazing-fast Shopify theme creation. It is built on top of the [Shopify CLI](https://shopify.dev/themes/tools/cli) and extends it with additional workflow and building capabilities. By default, it's bundled with Vue.js and Tailwind CSS, but you can swap them for pretty much anything. Build a custom Shopify theme from scratch with a modern stack!
+```toml
+[environments.development]
+store = "slayed-starter"
+theme = "123123123"
 
-> If you are looking for the old Theme Lab it's here: [Legacy Version 3 branch](https://github.com/uicrooks/shopify-theme-lab/tree/legacy-v3)
-<!-- title / description (end) -->
+[environments.staging]
+store = "slayed-starter"
+theme = "123123123"
+ignore = ["templates/*", "config/*"]
 
-<!-- docs (start) -->
-## Docs
+[environments.production]
+store = "slayed-starter"
+theme = "123123123"
+```
 
-👉 You can find the documentation [here](https://uicrooks.github.io/shopify-theme-lab-docs)
-<!-- docs (end) -->
+### Commands
 
-<!-- ecosystem (start) -->
-## Ecosystem
-| Project | Status | Description |
-| - | - | - |
-| [Shopify Theme Lab](https://github.com/uicrooks/shopify-theme-lab) | <img src="https://img.shields.io/github/package-json/v/uicrooks/shopify-theme-lab?color=%236e78ff"> | Modular development environment for blazing-fast Shopify theming |
-| [Shopify Foundation Theme](https://github.com/uicrooks/shopify-foundation-theme) | <img src="https://img.shields.io/github/package-json/v/uicrooks/shopify-foundation-theme?color=%236e78ff"> | A modern Shopify starter theme built with Vue and Tailwind CSS |
-| [Shopify Theme Lab Plugins](https://github.com/uicrooks/shopify-theme-lab-plugins) | <img src="https://img.shields.io/static/v1?label=version&message=misc&color=%236e78ff"> | Official Shopify Theme Lab plugins |
-<!-- ecosystem (end) -->
+| Command       | Purpose           | Notes  |
+| ------------- |:-------------:| :-----:|
+| `npm run start`   | Develop with local dev server with live reload| See [Development Themes](https://shopify.dev/docs/themes/tools/cli#development-themes) |
+| `npm run deploy`     | Build and push to Shopify theme (interactive)      | Command produces a menu to choose theme and confirm. This CAN overwrite the live theme! |
+| `npm run deploy:dev` | Build and push to development environment theme (non-interactive)     | Uses **shopify.theme.toml** config |
+| `npm run deploy:staging` | Build and push to staging environment theme (non-interactive)  | Does overrite remote themes section/theme content |
+| `npm run deploy:new` | Build and publish to new theme on Shopify (interactive) |     |
 
-<!-- contributing (start) -->
-## Contributing
+For all other NPM scripts and Shopify CLI theme commands reference **package.json** and [Shopify CLI commands for themes](https://shopify.dev/docs/themes/tools/cli/commands)
 
-Everyone is welcome to make Shopify theme development better! Please read the [Contributing guide](.github/CONTRIBUTING.md) before creating issues or submitting pull requests.
-<!-- contributing (end) -->
+> As of Apr 27, 2023:
+> Shopify CLI is yet to be as feature filled as most would like. Configuring the dev
+> server to do things like not open a new window on initial run around available out of
+> the box. See the above link to see all that it can do.
+
+## Styling Slayed
+
+The standard Tailwind boilerplate is provided as well as SCSS compiled guaranteed-to-be-bundled styles at entry file **src/scss/global.scss**.
+
+If you choose to primarly style with SCSS, it's suggested that create your SCSS folders in **src/scss** and import all files within the SCSS entry file.
+
+## Javascript
+
+Set your project namespace variable within **src/main.js**.
+
+### Alpine.js
+[Alpine.js](https://alpinejs.dev/start-here) is included and Alpine magic properties, components, stores, and directives directories exist in **src/alpine**. The modules are auto-registered within **src/main.js**. Reference some of the existing files as to how to export your Alpine modules.
+
+### Vue.js
+See **Shopify Theme Lab**'s [example](https://github.com/uicrooks/shopify-theme-lab/blob/main/src/main.js) of how they register Vue.js.
+
+### Static Assets
+Static asset files MUST contain the **static** keyword or they will be overritten during the build process. Ex: `myfile.static.jpg`. This is unchanged, only reimplemented for Vite, from [Shopify Theme Labs Assets](https://uicrooks.github.io/shopify-theme-lab-docs/guide/assets.html#static-files).
+
+## Included Goodies
+
+### Predictive Search
+The Shopify provided predictive search is already included and just needed to be enabled in the themes customizer. To prevent it from being rendered remove the reference from **theme.liquid**.
+
+### Prodify
+Prodify is a Slayed rework of the Shopify Dawn theme's custom element logic for handling variant changes, **HATEOAS**-style content swapping, and more.
+
+The unminified script is found at **shopify/assets/prodify.static.js** and its required attributes are already applied within **shopify/sections/main-product.liquid**.
+
+## Roadmap
+
+- Prodify as NPM module.
+- Improve README to include liquid AJAX Cart

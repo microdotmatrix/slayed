@@ -11,11 +11,4 @@
   a {
     @apply text-cloud-burst-500 font-bold;
   }
-
-  /* Gutenberg block alignment */
-
-  /* Remove tap highlight on mobile chrome */
-  html {
-    -webkit-tap-highlight-color: transparent;
-  }
 }

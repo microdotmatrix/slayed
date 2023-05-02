@@ -24,3 +24,7 @@ function sectionRequest() {
     
   })
 }
+
+function subscribeToSectionRequests( ): void {
+	// requestSubscribers.push( callback );
+}

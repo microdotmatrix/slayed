@@ -1,7 +1,7 @@
-import { MessageType, FormattersObjectType, ConfigurationValue } from './ts-types';
-
 type SettingsType = {
-
+	computed: {
+		[property: string]: string
+	}
 }
 
 const cssClassesPrefix = 'js-prodify';
@@ -11,14 +11,11 @@ const addButtonTextUnavailable = 'Unavailable';
 
 
 const settings: SettingsType = {
-	addToCartCssClass: '',
-
-	lineItemQuantityErrorText: 'You can\'t add more of this item to your cart',
-	requestErrorText: 'There was an error while updating your cart. Please try again.',
 
 	computed: {
     sectionAttribute: `${ dataAttributePrefix }-section`,
     productFormAttribute: `${ dataAttributePrefix }-product-form`,
+    binderAttribute: `${ dataAttributePrefix }-bind-state`,
 		variantPriceAttribute: `${ dataAttributePrefix }-price`,
     addButtonAttribute: `${ dataAttributePrefix }-add-button`,
     initialStateAttribute: `${ dataAttributePrefix }-inital-state`,
@@ -31,3 +28,5 @@ const settings: SettingsType = {
 		cartStateSetBodyClass: `${ cssClassesPrefix }-set`,
 	}
 }
+
+export { settings };

@@ -1,27 +1,26 @@
-function isCompatible() {
-	try {
+import { settings } from './settings';
+import { testThis } from './dom-binder';
 
-		if (!('fetch' in window)) return false;
-		if (!('Promise' in window)) return false;
-		if (!('FormData' in window)) return false;
-		if (!('DOMParser' in window)) return false;
-		if (!('CustomEvent' in window)) return false;
-
-		return true;
-	} catch(error) {
-		console.error(error);
-		return false;
-	}
+type ProdifyWorldType = {
+  name: string
 }
 
-if (!( 'prodify' in window )) {
-	
-	if (isCompatible()) {
-	
-    const event = new CustomEvent('prodifyInit');
-		document.body.dispatchEvent(event);
-	} else {
-		console.warn('Prodify is not supported by this browser');
-		document.body.className += ' js-prodify-not-compatible';
-	}
+class ProdifyWorld extends HTMLElement implements ProdifyWorldType {
+  name: string;
+
+  constructor() {
+    super()
+
+    this.name = 'Prodify World'
+  }
 }
+
+export class ProdifyWrapper extends ProdifyWorld {
+  constructor() {
+    super();
+    
+    console.log(this.name)
+  }
+}
+customElements.define("prodify-wrapper", ProdifyWrapper);
+customElements.define("prodify-world", ProdifyWorld);

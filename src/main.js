@@ -3,6 +3,7 @@ import collapse from '@alpinejs/collapse'
 import helpers from './helpers.js'
 import focus from '@alpinejs/focus'
 import './a11y.js'
+import './prodify'
 import './css/site.css'
 
 window.Alpine = Alpine

@@ -1,41 +1,32 @@
+import { MessageType, FormattersObjectType, ConfigurationValue } from './ts-types';
+
 type SettingsType = {
-	productFormsFilter: (formNode: HTMLFormElement) => boolean ,
-	messageBuilder: (messages: Array<MessageType>) => string,
-	stateBinderFormatters: FormattersObjectType,
-	addToCartCssClass: string | [string, number],
-	lineItemQuantityErrorText: string,
-	requestErrorText: string,
-	updateOnWindowFocus: boolean,
-	computed: {
-		[property: string]: string
-	}
+
 }
 
 const cssClassesPrefix = 'js-prodify';
 const dataAttributePrefix = 'data-prodify';
+const unavailableSelectOptionTextTemplate = '[value] - Unavailable';
+const addButtonTextUnavailable = 'Unavailable';
+
 
 const settings: SettingsType = {
-	productFormsFilter: (formNode: HTMLFormElement): boolean => true,
-	messageBuilder: (messages: Array<MessageType>): string => {
-		let result = '';
-		messages.forEach( element => {
-			result += `<div class="${ cssClassesPrefix }-message ${ cssClassesPrefix }-message--${ element.type }">${ element.text }</div>`;
-		})
-		return result;
-	},
-	stateBinderFormatters: {},
 	addToCartCssClass: '',
 
 	lineItemQuantityErrorText: 'You can\'t add more of this item to your cart',
 	requestErrorText: 'There was an error while updating your cart. Please try again.',
 
 	computed: {
-		sectionsAttribute: `${ dataAttributePrefix }-section`,
-		priceAttribute: `${ dataAttributePrefix }-price`,
+    sectionAttribute: `${ dataAttributePrefix }-section`,
+    productFormAttribute: `${ dataAttributePrefix }-product-form`,
+		variantPriceAttribute: `${ dataAttributePrefix }-price`,
     addButtonAttribute: `${ dataAttributePrefix }-add-button`,
-    variantsJsonAttribute: `${ dataAttributePrefix }-variants-json`,
-    optionWrapperAttribute: `${ dataAttributePrefix }-option-wrapper`,
+    initialStateAttribute: `${ dataAttributePrefix }-inital-state`,
+    productOptionContainerAttribute: `${ dataAttributePrefix }-product-option-container`,
     swapTargetAttribute: `${ dataAttributePrefix }-swap-target`,
+    quantityIncrementAttribute: `${ dataAttributePrefix }-quantity-increment`,
+    quantityDecrementAttribute: `${ dataAttributePrefix }-quantity-decrement`,
+    quantityPresentationAttribute: `${ dataAttributePrefix }-quantity-presentation`,
 
 		cartStateSetBodyClass: `${ cssClassesPrefix }-set`,
 	}

@@ -4,7 +4,6 @@ function isCompatible() {
 		if (!('fetch' in window)) return false;
 		if (!('Promise' in window)) return false;
 		if (!('FormData' in window)) return false;
-		if (!('WeakMap' in window)) return false;
 		if (!('DOMParser' in window)) return false;
 		if (!('CustomEvent' in window)) return false;
 

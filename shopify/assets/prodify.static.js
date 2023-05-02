@@ -13,7 +13,6 @@ class Prodify {
     this.quantityPresentationSelector = '[data-prodify-quantity-presentation]'
 
     this.el = document.querySelector('[data-prodify]')
-    this.el.querySelector(this.quantityWrapperSelector)
     this.pickerType = this.el.dataset.prodify
 
     this.el.addEventListener('change', this.onVariantChange)

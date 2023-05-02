@@ -19,7 +19,7 @@ export default {
     postcss: resolve(__dirname, '../.config/postcss.config.js'),
   },
   resolve: {
-    extensions: ['*', '.js', '.json'],
+    extensions: ['*', '.js', '.json', '.ts'],
     alias: {
       '@': resolve(__dirname, '../src/'),
       '@shopify-directory': resolve(__dirname, '../shopify/'),

@@ -1,0 +1,28 @@
+{
+  "frontend/entrypoints/theme.css": {
+    "file": "theme.BoAuHWre.min.css",
+    "src": "frontend/entrypoints/theme.css",
+    "isEntry": true
+  },
+  "frontend/entrypoints/theme.js": {
+    "file": "theme.OzFC4OOB.min.js",
+    "src": "frontend/entrypoints/theme.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "frontend/js/prodify.js"
+    ]
+  },
+  "frontend/fonts/OpenSans-Regular.woff": {
+    "file": "OpenSans-Regular.BovM91MF.min.woff",
+    "src": "frontend/fonts/OpenSans-Regular.woff"
+  },
+  "frontend/fonts/OpenSans-Regular.woff2": {
+    "file": "OpenSans-Regular.6FVmGrnT.min.woff2",
+    "src": "frontend/fonts/OpenSans-Regular.woff2"
+  },
+  "frontend/js/prodify.js": {
+    "file": "prodify.RNfAc_SV.min.js",
+    "src": "frontend/js/prodify.js",
+    "isDynamicEntry": true
+  }
+}
